@@ -64,13 +64,13 @@ contract ERC20 is IERC20 {
      }
 
 
-     function add_items(string memory item_name, uint256 item_price) external only_owner{
+     function additems(string memory item_name, uint256 item_price) external only_owner{
          item_count++;
          Item memory new_item = Item(item_count , item_name , item_price);
          items[item_count] = new_item;
      }
 
-     function get_items() external view returns (Item[] memory){
+     function getitems() external view returns (Item[] memory){
          Item[] memory all_items = new Item[](item_count);
 
          for(uint i= 1; i<= item_count ; i++){
@@ -81,7 +81,7 @@ contract ERC20 is IERC20 {
 
      }
 
-     function Redeem_item(uint item_Id) external {
+     function Redeemitem(uint item_Id) external {
          require (item_Id >0 && item_Id <=item_count , "Invalid item ID");
          Item memory redeemed_item = items[item_Id];
 
